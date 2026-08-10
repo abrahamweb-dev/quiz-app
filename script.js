@@ -56,14 +56,23 @@ function loadQuestion() {
 
   const q = questions[currentQuestion];
   questionText.textContent = q.question;
-  progress.textContent = Question ${currentQuestion + 1} of ${questions.length};
+  progress.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
 
   optionsContainer.innerHTML = "";
 
   q.options.forEach((optionText, index) => {
     const btn = document.createElement("button");
     btn.classList.add("option-btn");
-    btn.textContent = optionText;
+
+    const idxSpan = document.createElement("span");
+    idxSpan.classList.add("idx");
+    idxSpan.textContent = `[${index}]`;
+
+    const labelSpan = document.createElement("span");
+    labelSpan.textContent = optionText;
+
+    btn.appendChild(idxSpan);
+    btn.appendChild(labelSpan);
     btn.addEventListener("click", () => selectOption(btn, index));
     optionsContainer.appendChild(btn);
   });
@@ -77,6 +86,7 @@ function selectOption(selectedBtn, index) {
   const allButtons = document.querySelectorAll(".option-btn");
 
   allButtons.forEach((btn, i) => {
+    btn.disabled = true;
     if (i === q.correct) {
       btn.classList.add("correct");
     }
@@ -107,7 +117,7 @@ function showResults() {
   nextBtn.classList.add("hidden");
   resultBox.classList.remove("hidden");
 
-  scoreText.textContent = You scored ${score} out of ${questions.length}!;
+  scoreText.textContent = `${score} / ${questions.length} correct`;
 }
 
 restartBtn.addEventListener("click", () => {
