@@ -70,7 +70,7 @@ function loadQuestion() {
 }
 
 function selectOption(selectedBtn, index) {
-  if (answered) return; // prevent changing answer after one is picked
+  if (answered) return;
   answered = true;
 
   const q = questions[currentQuestion];
