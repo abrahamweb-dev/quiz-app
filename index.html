@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CS Quiz App</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>quiz.js — 1000 Questions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="quiz-container">
+<div class="window">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="filename">quiz.js — 1000 questions</span>
+  </div>
+
+  <div class="body-pad">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+
     <div id="quiz-header">
-      <h1>Web Dev Quiz</h1>
-      <p id="progress">Question 1 of 5</p>
+      <div>
+        <span class="eyebrow">mixed knowledge quiz</span>
+      </div>
+      <div>
+        <span id="progress">Question 1 of 1000</span>
+        <div id="score-live">Score: <span id="score-live-num">0</span></div>
+      </div>
     </div>
 
     <div id="question-box">
-      <h2 id="question-text">Question goes here</h2>
-      <div id="options" class="options"></div>
+      <p id="question-text"></p>
+      <div id="options"></div>
     </div>
 
-    <button id="nextBtn">Next</button>
+    <div class="footer-row">
+      <button id="nextBtn" disabled>Next</button>
+    </div>
 
     <div id="result-box" class="hidden">
-      <h2>Quiz Complete!</h2>
-      <p id="score-text"></p>
-      <button id="restartBtn">Try Again</button>
+      <div class="result-tag">quiz complete</div>
+      <div id="score-text"></div>
+      <button id="restartBtn">Run again</button>
     </div>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
